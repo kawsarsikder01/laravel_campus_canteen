@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dashboard",
+    "icon": "icon-home4",
+    "url": "dashboard"
+  },
+  {
+    "name": "POS",
+    "icon": "icon-printer4",
+    "url": "pos"
+  },
+  {
+    "name": "Customers",
+    "icon": "icon-users2",
+    "subnav": [
+      {
+        "name": "Add Customer",
+        "url": "addcustomer"
+      },
+      {
+        "name": "Customers",
+        "url": "customers"
+      }
+    ]
+  }
+]
