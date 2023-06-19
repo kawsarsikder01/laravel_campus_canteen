@@ -1,0 +1,1 @@
+<input {{$slot}} type="text" class="form-control" placeholder="Enter category type...">

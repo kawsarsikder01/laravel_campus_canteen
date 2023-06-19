@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3df28fc8cd5e0e8c672ead36c4940d37",
+    "content-hash": "36400681879c07925f16e74ad488c46c",
     "packages": [
         {
             "name": "brick/math",
@@ -1759,6 +1759,129 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "limitlessmaterial/actions",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../applets/limitlessmaterial-actions",
+                "reference": "f4d701a73101081ae1a452656c9768fdb2be5579"
+            },
+            "type": "library",
+            "extra": {
+                "copyright": "www.pondit.com",
+                "laravel": {
+                    "providers": [
+                        "Themegenie\\Actions\\ActionsServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Themegenie\\Actions\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pondit",
+                    "email": "info@pondit.com",
+                    "homepage": "www.pondit.com"
+                }
+            ],
+            "description": "Themegenie Actions",
+            "keywords": [
+                "Laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "limitlessmaterial/datadisplay",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../applets/limitlessmaterial-datadisplay",
+                "reference": "ed38eeb1d936720c88e1aea80afc1b0b6421fbda"
+            },
+            "type": "library",
+            "extra": {
+                "copyright": "www.pondit.com",
+                "laravel": {
+                    "providers": [
+                        "Themegenie\\DataDisplay\\DataDisplayServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Themegenie\\DataDisplay\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pondit",
+                    "email": "info@pondit.com",
+                    "homepage": "www.pondit.com"
+                }
+            ],
+            "description": "Themegenie DataDisplay",
+            "keywords": [
+                "Laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "limitlessmaterial/dataentry",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../applets/limitlessmaterial-dataentry",
+                "reference": "0633e3a75fa408d277db033efba18e20b63b46d7"
+            },
+            "type": "library",
+            "extra": {
+                "copyright": "www.pondit.com",
+                "laravel": {
+                    "providers": [
+                        "Themegenie\\DataEntry\\DataEntryServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Themegenie\\DataEntry\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pondit",
+                    "email": "info@pondit.com",
+                    "homepage": "www.pondit.com"
+                }
+            ],
+            "description": "Themegenie Form Fields",
+            "keywords": [
+                "Laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "monolog/monolog",

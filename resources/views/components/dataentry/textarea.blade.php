@@ -1,0 +1,1 @@
+<textarea {{$slot}} type="text" class="form-control"></textarea>

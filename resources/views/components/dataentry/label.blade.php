@@ -1,0 +1,1 @@
+<label class="col-form-label col-lg-2">{{$slot}}<span class="text-danger">*</span></label>
