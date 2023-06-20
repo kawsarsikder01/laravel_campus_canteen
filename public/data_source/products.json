@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "uuid": "qw",
+        "title": "Corn",
+        "price": "10$",
+        "src": "https:\/\/theblondcook.com\/wp-content\/uploads\/2018\/10\/easy-creamed-corn-4.jpg",
+        "alt": "corn.jpg"
+       
+    },
+    {
+        "id": 2,
+        "uuid": "qwe",
+        "title": "Nasos",
+        "price": "20$",
+        "src": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/8\/87\/Nachos-cheese.jpg\/1200px-Nachos-cheese.jpg",
+        "alt": "nacos.jpg"
+    },
+    {
+        "id": 3,
+        "uuid": "qwr",
+        "title": "Salad",
+        "price": "15$",
+        "src": "https:\/\/www.acouplecooks.com\/wp-content\/uploads\/2019\/05\/Chopped-Salad-008.jpg",
+        "alt": "salad.jpg"
+    },
+    {
+        "id": 4,
+        "uuid": "qwy",
+        "title": "Rice",
+        "price": "15$",
+        "src": "https:\/\/media.istockphoto.com\/id\/491090528\/photo\/cooked-rice.jpg?s=612x612&w=0&k=20&c=WNeDEUEioyyk6FQZQrVMrtFMDVdtbwtK951eZ8q5FNY=",
+        "alt": "rice.jpg"
+    },
+    {
+        "id": 5,
+        "uuid": "qwi",
+        "title": "Fruits",
+        "price": "15$",
+        "src": "https:\/\/img.freepik.com\/free-vector\/fruits-berries-colorful-icons-collection_1284-20043.jpg?w=2000",
+        "alt": "fruits.jpg"
+    },
+    {
+        "id": 6,
+        "uuid": "qwo",
+        "title": "Donat",
+        "price": "15$",
+        "src": "https:\/\/images.unsplash.com\/photo-1612240498936-65f5101365d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80",
+        "alt": "donat.jpg"
+    },
+    {
+        "id": 7,
+        "uuid": "wewqsd7",
+        "title": "dfdfhhjk",
+        "price": "fhk",
+        "src": "https:\/\/www.teenaagnel.com\/wp-content\/uploads\/2019\/12\/food-photography-in-dubai.jpg",
+        "alt": "dfghk"
+    }
+]

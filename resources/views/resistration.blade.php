@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +15,13 @@
 <section id="login">
     <h3>Login</h3>
     <div class="container login">
-        <form action="{{route('login')}}" method="post" >
+        <form action="{{route('user')}}" method="post"  >
         @csrf 
         @method('post')
-            <input type="text"class="d-block m-auto"  name="email"id="email" placeholder="username or email">
+             <input type="text" class="d-block m-auto my-3" name="name"placeholder="Enter Your Name">
+            <input type="text"class="d-block m-auto"  name="email"id="email" placeholder="Enter Your  username or email">
             <input type="password"class="d-block m-auto my-3"name ="password" placeholder="password">
-           <button type="submit" class="d-block m-auto button px-5">SING IN</button>
-           <a href="{{route('resistration')}}" class="d-block m-auto button button1 px-5">SING UP</a>
+           <button type="submit" class="d-block m-auto button button1 px-5">SING UP</button>
            <a href="#">Forgot Password</a>
         </form>
     </div>

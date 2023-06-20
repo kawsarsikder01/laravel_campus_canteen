@@ -10,17 +10,32 @@ use App\Http\Controllers\Outdoors;
 use App\Http\Controllers\Orders;
 use App\Http\Controllers\Setting;
 use App\Http\Controllers\AppConfig;
+use App\Http\Controllers\Authentication;
 
 
 
 Route::get('/', function () {
     return view('index');
-});
-Route::get('/dashboard',[Dashboard::class ,'index'])->name('dashboard');
-Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
-Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
+})->name('index');
 Route::post('/added_customer',[AddCustomer::class ,'store'])->name('customercontroller');
-Route::get('add_category',[AddCustomer::class ,'index2'])->name('addcategory');
+Route::post('customer/{id}/update',[Customer::class ,'update']);
+Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
+Route::get('home',function(){
+    return view('frontend.index');
+})->name('home');
+Route::get('user_login',function(){
+    return view('frontend.login');
+})->name('userlogin');
+Route::get('contact',function(){
+    return view('frontend.contact');
+})->name('contact');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('logout',[Authentication::class ,'logout'])->name('logout');
+    Route::get('/dashboard',[Dashboard::class ,'index'])->name('dashboard');
+    Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
+    Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
+    Route::get('add_category',[AddCustomer::class ,'index2'])->name('addcategory');
 Route::get('categories',[Categories::class ,'index2'])->name('categories');
 Route::get('add_product',[Products::class ,'index'])->name('addproduct');
 Route::get('products',[Products::class ,'index2'])->name('products');
@@ -37,5 +52,16 @@ Route::get('slider',[AppConfig::class ,'index2'])->name('slider');
 Route::get('privecy_policy',[AppConfig::class ,'index3'])->name('privecy');
 Route::get('about_page',[AppConfig::class ,'index4'])->name('about');
 Route::get('customer/{id}/edit',[Customer::class ,'edit']);
-Route::post('customer/{id}/update',[Customer::class ,'update']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
+Route::get('customer/{id}/view',[Customer::class ,'view']);
+});
+
+Route::get('resistration',function(){
+    return view('resistration');
+})->name('resistration');
+Route::post('userdatastore',[Authentication::class ,'store'])->name('user');
+Route::get('login',[Authentication::class ,'index'])->name('login');
+Route::post('login',[Authentication::class ,'auth'])->name('login');
+
+
+

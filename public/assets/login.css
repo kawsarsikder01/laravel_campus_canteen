@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.navbar-brand{
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+#login{
+    margin-top:100px;
+}
+#login h3{
+    font-size: 45px; 
+  color:#FC4F00;
+  text-align: center;
+  font-family:"Fantasy" ,"Papyrus" ;
+}
+.login form input{
+    width:300px;
+    margin:10px;
+    padding:5px;
+}
+.login form{
+    text-align: center;
+}
+.login{
+    background-color: #2A2F4F;
+    margin-top:60px;
+    padding:40px;
+}
+.button{
+    width:300px;
+    background-color: #FDE2F3;
+    color:#2A2F4F;
+    padding:8px;
+    display: block;
+    margin:auto;
+}
+.login form a{
+    text-decoration: none;
+    color:#FDE2F3;
+}
+.button1{
+    background-color: #2A2F4F ;
+    color:#FDE2F3;
+    border:1px solid #FDE2F3;
+}
+.button1:hover{
+    background-color: #FDE2F3 ;
+    color:#2A2F4F;
+    transition: 1s;
+}

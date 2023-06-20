@@ -1,0 +1,27 @@
+[
+    {
+        "title":"Title 1",
+        "alt":"Image 1",
+        "description":"Description 1",
+        "url" :"productdetails.html",
+        "src":"../global_assets/img/silder1.jpg"
+    }, {
+        "title":"Title 2",
+        "alt":"Image 2",
+        "description":"Description 2",
+        "url" :"productdetails.html",
+        "src":"../global_assets/img/silder2.jpg"
+    }, {
+        "title":"Title 3",
+        "alt":"Image 3",
+        "description":"Description 3",
+        "url" :"productdetails.html",
+        "src":"../global_assets/img/silder3.jpg"
+    }, {
+        "title":"Title 4",
+        "alt":"Image 4",
+        "description":"Description 4",
+        "url" :"productdetails.html",
+        "src":"../global_assets/img/salad.jpg"
+    }
+]

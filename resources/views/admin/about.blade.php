@@ -29,5 +29,5 @@
 
                 <x-dataentry.submit/>
             </form>
-        </div>
+</div>
 </x-sg-master>

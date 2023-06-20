@@ -48,4 +48,9 @@ class Customer extends Controller
         $customer->delete();
         return redirect(route('customers'));
     }
+    public function view($id)
+    {
+        $customer = Customers::where('id',$id)->first();
+        return view('admin.view',['customer'=>$customer]);
+    }
 }

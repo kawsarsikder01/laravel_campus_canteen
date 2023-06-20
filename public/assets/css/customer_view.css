@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+#customer-details{
+    align-items: center;
+    background-color: #025464;
+    width:100%;
+    height:100%;
+}
+.image{
+    width:50%;
+}
+.image img{
+    margin-left:50px;
+}
+.details {
+    width:50%;
+}
+.customer-details{
+    display: flex;
+    align-items: center;
+    width:100%;
+
+}
+.details h3{
+ font-size: 30px;
+ letter-spacing: 1px;
+ color:#F5F0BB;
+ padding:5px;
+}
+.details p{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color:#F5F0BB;
+    padding:3px;
+   }
