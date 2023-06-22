@@ -11,6 +11,7 @@ use App\Http\Controllers\Orders;
 use App\Http\Controllers\Setting;
 use App\Http\Controllers\AppConfig;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\UserController;
 
 
 
@@ -54,6 +55,7 @@ Route::get('about_page',[AppConfig::class ,'index4'])->name('about');
 Route::get('customer/{id}/edit',[Customer::class ,'edit']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
 Route::get('customer/{id}/view',[Customer::class ,'view']);
+Route::post('create_user',[UserController::class,'createUser'])->name('createUser');
 });
 
 Route::get('resistration',function(){
