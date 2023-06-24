@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::post('/added_customer',[AddCustomer::class ,'store'])->name('customercontroller');
 Route::post('customer/{id}/update',[Customer::class ,'update']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
+Route::post('categorie/{id}/update',[Categories::class , 'update']);
+Route::get('categorie/{id}/delete',[Categories::class , 'destroy']);
 Route::get('home',function(){
     return view('frontend.index');
 })->name('home');
@@ -36,7 +38,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/dashboard',[Dashboard::class ,'index'])->name('dashboard');
     Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
     Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
-    Route::get('add_category',[AddCustomer::class ,'index2'])->name('addcategory');
+    Route::get('add_category',[Categories::class ,'index'])->name('addcategory');
 Route::get('categories',[Categories::class ,'index2'])->name('categories');
 Route::get('add_product',[Products::class ,'index'])->name('addproduct');
 Route::get('products',[Products::class ,'index2'])->name('products');
@@ -56,6 +58,9 @@ Route::get('customer/{id}/edit',[Customer::class ,'edit']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
 Route::get('customer/{id}/view',[Customer::class ,'view']);
 Route::post('create_user',[UserController::class,'createUser'])->name('createUser');
+Route::post('create_categorie',[Categories::class,'store'])->name('create_categorie');
+Route::get('category/{id}/edit',[Categories::class , 'edit']);
+
 });
 
 Route::get('resistration',function(){

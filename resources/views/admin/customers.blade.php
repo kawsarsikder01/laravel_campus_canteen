@@ -47,7 +47,7 @@
                             <div class="d-flex  ">
                                 <a href="customer/{{$customer->id}}/view" class="btn btn-success btn-sm">View</a>
                                 <a href="customer/{{$customer->id}}/edit" class="btn btn-info btn-sm">Edit</a>
-                                <a href="customer/{{$customer->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="category/{{$customer->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
                             </div>
                         </td>
                     </tr>

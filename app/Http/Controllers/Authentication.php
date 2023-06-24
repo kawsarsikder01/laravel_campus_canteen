@@ -37,13 +37,14 @@ class Authentication extends Controller
     ]);
     $user = User::where('email',$req->email)->first();
     if(isset($user->username)){
+       
+        }
         if(\Auth::attempt($req->only('email','password'))){
             return redirect(route('dashboard'));
-        }
     }
     
     elseif(\Auth::attempt($req->only('email','password'))){
-        return redirect(route('home'));
+        return redirect(route('dashboard'));
     }
     else{
         return redirect(route('index'));

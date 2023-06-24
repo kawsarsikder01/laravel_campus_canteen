@@ -6,6 +6,7 @@
             <span class="filename" style="user-select: none;">No file selected</span>
             <span class="action btn btn-light legitRipple d-block" style="user-select: none;">Choose File</span>
         </div>
-        <p class="d-block" style="display:block;">{{$slot}}</p>
+        <img src="{{asset('image/'.$slot)}}" height="50" width="50"class="d-block" style="display:block;" alt="">
+       
     </div>
 </div>
