@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class Setting extends Controller
 {
@@ -12,7 +13,8 @@ class Setting extends Controller
     }
     public function index2()
     {
-     return view('admin.users');
+        $users = User::All();
+     return view('admin.users',['users'=>$users]);
     }
     public function index3()
     {

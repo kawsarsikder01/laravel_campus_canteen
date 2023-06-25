@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\User;
 
 class Categories extends Controller
 {
@@ -17,8 +18,9 @@ class Categories extends Controller
     return view('admin.categories',['categories'=>$categories]);
    }
 
-   public function store(Request $request)
+   public function store(Request $request,$id)
    {
+    $user = User::find($id);
     $request->validate([
         'name' => 'required',
         'description' => 'required',
@@ -30,7 +32,7 @@ class Categories extends Controller
      $categorie->name = $request->name;
      $categorie->description = $request->description;
      $categorie->image = $imageName;
-     $categorie->save();
+     $user->categorie()->save($categorie);
      return redirect(route('categories'));
 
    }

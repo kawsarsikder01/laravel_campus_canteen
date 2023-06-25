@@ -58,8 +58,10 @@ Route::get('customer/{id}/edit',[Customer::class ,'edit']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
 Route::get('customer/{id}/view',[Customer::class ,'view']);
 Route::post('create_user',[UserController::class,'createUser'])->name('createUser');
-Route::post('create_categorie',[Categories::class,'store'])->name('create_categorie');
+Route::post('create_categorie/{id}',[Categories::class,'store'])->name('create_categorie');
 Route::get('category/{id}/edit',[Categories::class , 'edit']);
+Route::get('user/{id}/profile',[UserController::class,'show']);
+Route::post('add_product/{id}',[Products::class ,'store']);
 
 });
 

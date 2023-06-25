@@ -2,7 +2,7 @@
 <div class="content">
             <h3>Add Category</h3>
 
-            <form action="{{route('create_categorie')}}" method="post" enctype="multipart/form-data">
+            <form action="create_categorie/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')
             <x-dataentry.name/>

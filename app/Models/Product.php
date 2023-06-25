@@ -6,16 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class Categorie extends Model
+class Product extends Model
 {
     use HasFactory;
-    protected $table = 'categories';
+    protected $table = 'products';
     protected $fillable = [
         'name',
+        'categorie',
         'description',
+        'cost_price',
+        'sell_price',
         'image'
     ];
     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function categorie()
     {
         return $this->belongsTo(User::class);
     }

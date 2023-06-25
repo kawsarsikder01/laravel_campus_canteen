@@ -17,25 +17,26 @@
                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">Name</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Image</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Category</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Price</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Date</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Cost Price</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Sell Price</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">E-sale</th>
                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Job Title: activate to sort column ascending">Outdore</th>
-                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Description</th>
                         <th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 100px;">Actions</th></tr>
                     </thead>
                     <tbody>
+                    @foreach($products as $product)
                     <tr role="row" class="odd">
-                        <td class="sorting_1">Biscuit</td>
+                        <td class="sorting_1">{{$product->name}}</td>
                         <td>
-                            <img src="https://preppykitchen.com/wp-content/uploads/2021/09/Biscuits-Feature.jpg" alt="Image of biscuit" style="height:100px; width: 100%;">
+                            <img src="{{asset('image/'.$product->image)}}" alt="product price" height="50" width="50">
                         </td>
-                        <td>Bakery</td>
-                        <td>30.00</td>
-                        <td>10 April 2023</td>
+                        <td>{{$product->category_name}}</td>
+                        <td>{{$product->cost_price}}</td>
+                        <td>{{$product->sell_price}}</td>
                         <td><span class="badge badge-success">Enabled</span></td>
                         <td><span class="badge badge-success">Enabled</span></td>
-                        <td><span class="badge badge-success">Active</span></td>
+                        <td><span class="">{{$product->description}}</span></td>
                         <td class="text-center">
                             <div class="d-flex  ">
                                 <a href="" class="btn btn-success btn-sm">View</a>
@@ -44,44 +45,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr role="row" class="even">
-                        <td class="sorting_1">Cake</td>
-                        <td>
-                            <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR8C8noXy-gngMs_Kyw1_Nrqj5LaTElvn6lpwAj47fLPmdpPyagoZkpYZCLAs0riqs1" alt="Image of cake" style="height:100px; width: 100%;">
-                        </td>
-                        <td>Bakery</td>
-                        <td>1,000.00</td>
-                        <td>10 April 2023</td>
-                        <td><span class="badge badge-success">Enabled</span></td>
-                        <td><span class="badge badge-danger">Disabled</span></td>
-                        <td><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <div class="d-flex  ">
-                                <a href="" class="btn btn-success btn-sm">View</a>
-                                <a href="" class="btn btn-info btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td class="sorting_1">Cream Roll</td>
-                        <td>
-                            <img src="https://cdn.shopify.com/s/files/1/0077/2816/9027/products/IMG_3280_800x.jpg?v=1667914963" alt="Image of cream roll" style="height:100px; width: 100%;">
-                        </td>
-                        <td>Bakery</td>
-                        <td>50.00</td>
-                        <td>10 April 2023</td>
-                        <td><span class="badge badge-success">Enabled</span></td>
-                        <td><span class="badge badge-success">Enabled</span></td>
-                        <td><span class="badge badge-success">Active</span></td>
-                        <td class="text-center">
-                            <div class="d-flex  ">
-                                <a href="" class="btn btn-success btn-sm">View</a>
-                                <a href="" class="btn btn-info btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
-                            </div>
-                        </td>
-                    </tr></tbody>
+                @endforeach
+                </tbody>
                 </table></div><div class="datatable-footer"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 15 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">←</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next">→</a></div></div></div>
             </div>
             <!-- /basic datatable -->

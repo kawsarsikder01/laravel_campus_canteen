@@ -5,8 +5,6 @@
             <input type="file" name = "image" class="d-inline form-control-uniform" style="display:block;" data-fouc="">
             <span class="filename" style="user-select: none;">No file selected</span>
             <span class="action btn btn-light legitRipple d-block" style="user-select: none;">Choose File</span>
-        </div>
-        <img src="{{asset('image/'.$slot)}}" height="50" width="50"class="d-block" style="display:block;" alt="">
-       
+        </div> 
     </div>
 </div>

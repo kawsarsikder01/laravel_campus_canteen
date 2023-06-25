@@ -25,7 +25,7 @@ class Customer extends Controller
         ]);
         $customer = Customers::where('id',$id)->first();
         if(isset($req->image)){
-            $imageName = time().'_'.$req->image->extension();
+        $imageName = time().'_'.$req->image->extension();
         $req->image->move(public_path('image'),$imageName);
         $customer->image=$imageName;
         }

@@ -24,8 +24,9 @@ class Authentication extends Controller
     $resistration->email = $req->email;
     $resistration->password=$req->password;
     $resistration->save();
+    $user = User::where('email',$req->email)->first();
     if(\Auth::attempt($req->only('email','password'))){
-        return redirect(route('dashboard'));
+        return view('admin.dashboard',['user'=>$user]);
     }
     return redirect(route('index'));
    }
@@ -40,11 +41,11 @@ class Authentication extends Controller
        
         }
         if(\Auth::attempt($req->only('email','password'))){
-            return redirect(route('dashboard'));
+            return view('admin.dashboard',['user'=>$user]);
     }
     
     elseif(\Auth::attempt($req->only('email','password'))){
-        return redirect(route('dashboard'));
+        return view('admin.dashboard',compact('user'));
     }
     else{
         return redirect(route('index'));

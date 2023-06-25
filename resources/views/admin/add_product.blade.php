@@ -2,17 +2,22 @@
 <div class="content">
             <h3>Add Product</h3>
 
-            <form action="">
+            <form action="add_product/{{Auth::user()->id}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('post')
                 <x-dataentry.name/>
 
                 <div class="form-group row">
                     <x-dataentry.label>
-                        Type
+                        Select Categorie
                     </x-dataentry.label>
                     <div class="col-lg-10">
-                    <x-dataentry.text>
-                        name = "type"
-                    </x-dataentry.text>
+                        <select class="form-control" name="categorie_id" id="categorie">
+                            @foreach($categories as $categorie)
+                            <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+                            @endforeach
+                            
+                          </select>
                     </div>
                 </div>
 
@@ -33,7 +38,7 @@
                     </x-dataentry.label>
                     <div class="col-lg-10">
                     <x-dataentry.text>
-                        name = "costprice"
+                        name = "cost_price"
                     </x-dataentry.text>
                     </div>
                 </div>
@@ -44,7 +49,7 @@
                     </x-dataentry.label>
                     <div class="col-lg-10">
                     <x-dataentry.text>
-                        name = "sellprice"
+                        name = "sell_price"
                     </x-dataentry.text>
                     </div>
                 </div>

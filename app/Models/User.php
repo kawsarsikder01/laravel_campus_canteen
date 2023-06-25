@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Traits\HasPermissionsTrait;
+use App\Models\Userprofile;
+use App\Models\Categorie;
+use App\Models\Product;
 
 class User extends Authenticatable
 {
@@ -26,6 +29,18 @@ class User extends Authenticatable
         'username',
         'phone'
     ];
+    public function userprofile()
+    {
+       return $this->hasOne(Userprofile::class);
+    }
+    public function categorie()
+    {
+        return $this->hasMany(Categorie::class);
+    }
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
