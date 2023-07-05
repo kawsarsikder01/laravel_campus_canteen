@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use App\Traits\HasPermissionsTrait;
+    // use App\Traits\HasPermissionsTrait;
     /**
      * Run the database seeds.
      */

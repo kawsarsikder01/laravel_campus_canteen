@@ -10,23 +10,42 @@ class Authentication extends Controller
 {
     public function index()
     {
-        return view('index');
+        return redirect(route('userlogin'));
     }
    public function store(Request $req)
    {
+    $image = $req->file('image');
+    $imagename = $image->getClientOriginalName();
+    // dd($image);
+    // dd($req->image);
+    // dd($req->image);
+    // dd($req->all());
     $req->validate([
         'name' => 'required',
         'email'=>'required',
-        'password'=>'required'
+        'address'=>'required',
+        'password'=>'required|confirmed|min:6'
     ]);
+    // dd('hello');
+    $req->image->move(public_path('image'),$imagename);
     $resistration = new User;
     $resistration->name = $req->name;
     $resistration->email = $req->email;
+    $resistration->address = $req->address;
+    $resistration->image = $imagename;
     $resistration->password=$req->password;
     $resistration->save();
     $user = User::where('email',$req->email)->first();
-    if(\Auth::attempt($req->only('email','password'))){
-        return view('admin.dashboard',['user'=>$user]);
+    if(isset($user->username))
+    {
+        if(\Auth::attempt($req->only('email','password')))
+        {
+            return redirect(route('dashboard'));
+        }
+    }
+    elseif(\Auth::attempt($req->only('email','password')))
+    {
+        return redirect(route('frontend_home'));
     }
     return redirect(route('index'));
    }
@@ -38,23 +57,23 @@ class Authentication extends Controller
     ]);
     $user = User::where('email',$req->email)->first();
     if(isset($user->username)){
-       
-        }
         if(\Auth::attempt($req->only('email','password'))){
-            return view('admin.dashboard',['user'=>$user]);
+            return redirect(route('dashboard'));
+         }
     }
+       
     
     elseif(\Auth::attempt($req->only('email','password'))){
-        return view('admin.dashboard',compact('user'));
+        return redirect(route('frontend_home'));
     }
     else{
-        return redirect(route('index'));
+        return redirect(route('userlogin'));
     }
    }
    public function logout()
    {
     
     \Auth::logout();
-    return redirect(route('index'));
+    return redirect(route('home'));
    }
 }

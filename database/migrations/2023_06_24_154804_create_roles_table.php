@@ -14,12 +14,7 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            // $table->unsignedBigInteger('permission_id');
-            // $table->foreign('permission_id')->references('id')->on('permissions');
-            $table->boolean('can_update')->default(1);
-            $table->boolean('can_view')->default(1);
-            $table->boolean('can_create')->default(1);
-            $table->boolean('status')->default(1);
+            $table->string('slug');
             $table->timestamps();
         });
     }

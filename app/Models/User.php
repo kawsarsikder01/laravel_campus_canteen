@@ -11,10 +11,13 @@ use App\Traits\HasPermissionsTrait;
 use App\Models\Userprofile;
 use App\Models\Categorie;
 use App\Models\Product;
+use App\Models\Roll;
+use App\Traits\HasRolesAndPermissions;
+
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,HasRolesAndPermissions;
     
 
     /**
@@ -41,7 +44,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
-
+   
     /**
      * The attributes that should be hidden for serialization.
      *

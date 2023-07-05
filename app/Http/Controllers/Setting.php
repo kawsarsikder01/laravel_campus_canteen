@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 
 class Setting extends Controller
 {
@@ -22,6 +23,8 @@ class Setting extends Controller
     }
     public function index4()
     {
-     return view('admin.permission');
+     $users = User::All();
+     $role = Role::All();
+     return view('admin.permission',['users'=>$users],['rolles'=>$role]);
     }
 }

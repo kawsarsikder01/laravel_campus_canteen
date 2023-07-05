@@ -4,20 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Permission;
 
 class Role extends Model
 {
     use HasFactory;
 
-    public function roles() {
+    public function permissions() {
 
-        return $this->belongsToMany(Role::class,'roles_permissions');
+        return $this->belongsToMany(Permission::class,'roles_permissions');
             
      }
-     
-     public function users() {
-     
-        return $this->belongsToMany(User::class,'users_permissions');
-            
+     public function allRolePermissions()
+     {
+        return $this->belongsToMany(Permission::class ,'roles_permissions');
      }
+     
+     
 }

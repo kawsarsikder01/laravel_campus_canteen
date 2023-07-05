@@ -22,7 +22,7 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function categorie()
+    public function categories()
     {
         return $this->belongsTo(User::class);
     }

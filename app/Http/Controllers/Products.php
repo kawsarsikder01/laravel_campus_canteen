@@ -24,6 +24,9 @@ class Products extends Controller
    }
    public function store(Request $request,$id)
    {
+    $products = Product::find(1);
+    // $products = Categorie::find(1)->products;
+    dd($products->categories());
         $request->validate([
             'name'=>'required',
             'categorie_id'=>'required',
@@ -43,11 +46,12 @@ class Products extends Controller
         $product = new Product;
         $product->name = $request->name;
         $product->category_name = $category_name;
-        $product->category_id = $request->categorie_id;
+        // $product->category_id = $request->categorie_id;
         $product->cost_price = $request->cost_price;
         $product->sell_price = $request->sell_price;
         $product->description = $request->description;
         $product->image = $imagename;
+        $product->categories()->attach($$request->categorie_id);
         $user->product()->save($product);
        return redirect(route('products'));
 

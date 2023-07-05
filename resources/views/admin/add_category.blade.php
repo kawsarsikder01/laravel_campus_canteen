@@ -18,8 +18,16 @@
 
                 <x-dataentry.image/>
 
+                @php
+                $permissions = Auth::user()->permissions;
+            @endphp
+            @foreach ($permissions as $permission)
+            @if (trim($permission->name) == "View")
+            <x-dataentry.submit/>
+            @endif
+            
                 
-                <x-dataentry.submit/>
+            @endforeach
             </form>
         </div>
 </x-sg-master>

@@ -31,6 +31,20 @@ $navs = json_decode($navJson);
             </div>
           </form>
         </li>
+        <li class="nav-item">
+          @if (Auth::user())
+          <a class="nav-link" href="{{route('logout')}}">LogOut</a>
+          @else
+          <a class="nav-link" href="{{route('userlogin')}}">Login</a>
+          @endif
+        </li>
+        <li class="nav-item">
+          @if (isset(Auth::user()->image))
+          <a class="nav-link" href=""> <img src="{{asset('image/'.Auth::user()->image)}}" height="40" width="40" style="border-radius: 50%;" alt=""></i></a>
+          @else
+          <a class="nav-link" href=""><i class="fa-solid fa-user"> </i></a>
+          @endif
+        </li>
 
       </ul>
 

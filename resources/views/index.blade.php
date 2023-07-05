@@ -22,7 +22,7 @@
             <input type="text"class="d-block m-auto"  name="email"id="email" placeholder="username or email">
             <input type="password"class="d-block m-auto my-3"name ="password" placeholder="password">
            <button type="submit" class="d-block m-auto button px-5">SING IN</button>
-           <a href="{{route('resistration')}}" class="d-block m-auto button button1 px-5">SING UP</a>
+           <a href="" class="d-block m-auto button button1 px-5">SING UP</a>
            <a href="#">Forgot Password</a>
         </form>
     </div>

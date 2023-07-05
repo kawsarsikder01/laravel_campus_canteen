@@ -8,24 +8,26 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3 text-danger">Campus Canteen</h1>
                     <h4>Sign into your account</h4>
-                    <form action="">
+                    <form action="{{route('user_login')}}" method="POST">
+                        @csrf 
+                        @method('post')
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="email" placeholder="Email-Address" class="form-control my-2 p-2">
+                                <input type="email" name="email" placeholder="Email-Address" class="form-control my-2 p-2">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="password" placeholder="*******" class="form-control my-2 p-2">
+                                <input type="password" name="password" placeholder="*******" class="form-control my-2 p-2">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="button" class="btn1 mt-3 mb-5">Login</button>
+                                <button type="submit" class="btn1 mt-3 mb-5">Login</button>
                             </div>
                         </div>
                         <a href="#">Forgot Password</a>
-                        <p>Don't have an account? <a href="registration.html">Register here</a></p>
+                        <p>Don't have an account? <a href="{{route('registration')}}">Register here</a></p>
                     </form>
                 </div>
             </div>

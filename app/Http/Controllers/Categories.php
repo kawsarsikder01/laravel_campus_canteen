@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\User;
+use App\Models\Roll;
+use App\Models\Permission;
+
 
 class Categories extends Controller
 {
@@ -20,6 +23,7 @@ class Categories extends Controller
 
    public function store(Request $request,$id)
    {
+    
     $user = User::find($id);
     $request->validate([
         'name' => 'required',
