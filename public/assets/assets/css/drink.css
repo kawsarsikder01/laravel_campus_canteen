@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.drink .card p{
+    background-color:#2A2F4F ;
+    color:#FDE2F3;
+    margin-left: 5px;
+    display: inline-block;
+    margin-left:80px;
+    padding:8px;
+    border-radius: 50%;
+ }
+
+ .drink .card h5{
+    color:#2A2F4F;
+ }
+ #drink h3{
+    font-size: 45px; 
+    color:#FC4F00;
+    text-align: center;
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+.drink{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#drink{
+    margin-top:50px;
+}
+.drink{
+    margin-top:50px;
+}
+.drink .card{
+    margin-top:20px;
+}

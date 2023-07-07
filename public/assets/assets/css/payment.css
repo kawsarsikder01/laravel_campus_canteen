@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#payment_method{
+    margin-top: 40px;
+}
+.payment_method{
+    margin-top: 60px;
+}
+#payment_method h3{
+    font-size: 45px; 
+    color:#FC4F00;
+    text-align: center;
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+.payment_method{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 10px;
+    row-gap: 20px;
+}
+.payment_item {
+    height: 200px;
+    width: 360px;
+    background-color: #fff;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+.payment_item:hover{
+    box-shadow:1px 1px 3px rgba(0, 0, 0, 0.6); ;
+}
+.payment_item img {
+    display: block;
+    margin-left:35%;
+    margin-top:10%;
+}
+.payment_item a i {
+   font-size: 4rem;
+   color:#2A2F4F;
+   display: block;
+   margin-left:40%;
+   margin-top:17%;
+}
+.payment_item a  {
+    color:#fff;
+ }
+ .payment_item h6 {
+    display: block;
+    margin-left:32%;
+    margin-top:8%;
+    color:#2A2F4F;
+}
+.img h6{
+    color:#2A2F4F;
+    margin-left:155px;
+    margin-top:6%;
+}

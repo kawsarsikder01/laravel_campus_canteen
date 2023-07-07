@@ -9,11 +9,15 @@ class Roles extends Controleer
 {
     public function index()
     {
-        return view('admin.add_user_role');
+        if(isset(Auth::user()->username)){
+        return view('admin.add_user_role');  
+     }
+    return redirect(route('home'));
     }
     public function store(Request $request)
     {
-
+        if(isset(Auth::user()->username)){
+          
         $request->validate([
             'name'=>'required',
             'section'=>'required'
@@ -36,5 +40,8 @@ class Roles extends Controleer
         }
         $role->save();
         return redirect(route('userrole'));
+        }
+        return redirect(route('home'));
+
     }
 }

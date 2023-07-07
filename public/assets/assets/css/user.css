@@ -1,0 +1,28 @@
+.user{
+    display: none;
+    position: absolute;
+    width:15rem;
+    height:40vh;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    background: #2A2F4F;
+    right:-100%;
+    transition: 1s;
+}
+.user.active{
+    display: inline-block;
+    right:0;
+    transition: 1s;
+}
+.user a{
+    text-decoration: none;
+    display: block;
+    margin-left: 20px;
+    color: #FDE2F3;
+    margin:10px;
+    padding:5px;
+    text-transform: capitalize;
+}
+.user a:hover{
+    text-decoration: underline;
+}

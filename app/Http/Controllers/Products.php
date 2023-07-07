@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Product;
 use App\Models\User;
+use Auth;
 
 
 
@@ -13,20 +14,28 @@ class Products extends Controller
 {
     public function index()
    {
-    $categories =  Categorie::all();
-    // dd($categories->name);
-    return view('admin.add_product',compact('categories'));
+    if(isset(Auth::user()->username)){
+        $categories =  Categorie::all();
+        return view('admin.add_product',compact('categories'));
+    }
+    return redirect(route('home'));
    }
    public function index2()
    {
-    $products = Product::All();
-    return view('admin.products',compact('products'));
+    if(isset(Auth::user()->username)){
+        $products = Product::All();
+        return view('admin.products',compact('products'));
+    }
+    return redirect(route('home'));
    }
    public function store(Request $request,$id)
    {
-    $products = Product::find(1);
-    // $products = Categorie::find(1)->products;
-    dd($products->categories());
+    if(isset(Auth::user()->username)){
+        $permissions = Auth::user()->permissions;
+
+        foreach ($permissions as $permission){
+        if (trim($permission->name) == "Create" || trim($permission->name) == "create"){}
+        $categorie = Categorie::find($request->categorie_id);
         $request->validate([
             'name'=>'required',
             'categorie_id'=>'required',
@@ -38,22 +47,33 @@ class Products extends Controller
         $imagename = time().'_'.$request->image->extension();
         $request->image->move(public_path('image'),$imagename);
         $user = User::find($id);
-        $cid = $request->categorie_id;
-        $categorie = Categorie::where('id',$cid)->first();
+        // $categorie = Categorie::where('id',$request->categorie_id)->first();
         // $categorie = Categorie::when('id',$request->categorie_id)->first();
         $category_name = $categorie->name;
-        // dd($category_name);
         $product = new Product;
         $product->name = $request->name;
-        $product->category_name = $category_name;
-        // $product->category_id = $request->categorie_id;
+        $product->category_name = $categorie->name;
+        $product->category_id = $request->categorie_id;
         $product->cost_price = $request->cost_price;
         $product->sell_price = $request->sell_price;
         $product->description = $request->description;
         $product->image = $imagename;
-        $product->categories()->attach($$request->categorie_id);
-        $user->product()->save($product);
+        $product->user_id =  $user->id;
+        if(isset($request->esale)){
+            $product->esale = 1;
+        }
+        if(isset($request->outdoor)){
+            $product->outdoor = 1;
+        }
+        $categorie->products()->save($product);
        return redirect(route('products'));
+    
+        }
+        return redirect(route('dashboard'));
+    }
+    return redirect(route('home'));
+    
+    
 
    }
 }

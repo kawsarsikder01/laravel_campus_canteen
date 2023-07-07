@@ -1,0 +1,21 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#thank{
+    height: 100%;
+    width:100%;
+}
+.thank {
+    height:50vh;
+    width:60%;
+    display: block;
+    margin: auto;
+    text-align: center;
+   margin-top: 150px;
+   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+}
+.thank h2{
+    color: green;
+}

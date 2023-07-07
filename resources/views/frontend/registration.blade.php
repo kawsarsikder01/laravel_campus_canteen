@@ -48,7 +48,7 @@
     
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="submit" class="btn1 mt-3 mb-5">Registration</button>
+                                <button type="submit" class="btn btn-info mt-3 mb-5">Registration</button>
                             </div>
                         </div>
                     </form>

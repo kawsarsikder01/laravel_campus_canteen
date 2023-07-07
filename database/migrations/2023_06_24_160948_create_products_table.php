@@ -23,7 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('status')->default(1);
+            $table->boolean('esale')->default(0);
+            $table->boolean('outdoor')->default(0);
             $table->timestamps();
         });
     }

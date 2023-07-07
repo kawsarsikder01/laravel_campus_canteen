@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.navbar-brand{
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+#reservation h3{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 45px;
+    font-family:"Fantasy" ,"Papyrus" ;
+    color:#FC4F00;
+}
+.table-booking{
+    background-color: #2A2F4F;
+    color:#FDE2F3;
+    padding:25px;
+    border-radius: 5px;
+}
+.button{
+    background-color: #FDE2F3;
+    color:#2A2F4F;
+    padding:10px;
+    display: block;
+    margin:auto;
+}

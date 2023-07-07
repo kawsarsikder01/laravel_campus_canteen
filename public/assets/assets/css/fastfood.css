@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.fastfood .card p{
+    background-color:#2A2F4F ;
+    color:#FDE2F3;
+    margin-left: 5px;
+    display: inline-block;
+    margin-left:80px;
+    padding:8px;
+    border-radius: 50%;
+ }
+
+ .fastfood .card h5{
+    color:#2A2F4F;
+ }
+ #fastfood h3{
+    font-size: 45px; 
+    color:#FC4F00;
+    text-align: center;
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+.fastfood{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#fastfood{
+    margin-top:50px;
+}
+.fastfood{
+    margin-top:50px;
+}
+.fastfood .card{
+    margin-top:20px;
+}

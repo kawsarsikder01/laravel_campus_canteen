@@ -22,7 +22,7 @@
                 $permissions = Auth::user()->permissions;
             @endphp
             @foreach ($permissions as $permission)
-            @if (trim($permission->name) == "View")
+            @if (trim($permission->name) == "Create")
             <x-dataentry.submit/>
             @endif
             

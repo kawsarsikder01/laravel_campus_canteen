@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.carousel-inner::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+.carousel-caption{ 
+    bottom:220px;
+    text-align: center;
+    justify-content: center;
+    z-index:2;
+}
+.carousel-caption h5{ 
+    font-family: "Fantasy" ,"Papyrus";
+    font-size:35px;
+    text-transform: capitalize;
+    margin-top:25px;
+    letter-spacing: 2px;
+}
+.carousel-caption p{
+    width:60%;
+    margin:auto;
+    font-size:18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.navbar-brand{
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+.shop{
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+.shop .card{
+    margin-top:20px;
+}
+.shop .card p{
+   background-color:#2A2F4F ;
+   color:#FDE2F3;
+   margin-left: 5px;
+   display: inline-block;
+   margin-left:80px;
+   padding:8px;
+   border-radius: 50%;
+}
+#shop h3{
+    font-size: 45px; 
+  color:#FC4F00;
+  text-align: center;
+  font-family:"Fantasy" ,"Papyrus" ;
+}
+#shop{
+    margin-top:50px;
+}
+.shop{
+    margin-top:50px;
+}
+#footer{
+    height: 60px;
+    background-color:#2A2F4F ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color:#FDE2F3 ;
+    margin-top:120px;
+}
+#footer .brand-name h6{
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+
+
+

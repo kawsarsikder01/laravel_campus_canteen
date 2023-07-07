@@ -13,6 +13,7 @@
                     </x-dataentry.label>
                     <div class="col-lg-10">
                         <select class="form-control" name="categorie_id" id="categorie">
+                            <option value="">Select Your Categorie</option>
                             @foreach($categories as $categorie)
                             <option value="{{$categorie->id}}">{{$categorie->name}}</option>
                             @endforeach

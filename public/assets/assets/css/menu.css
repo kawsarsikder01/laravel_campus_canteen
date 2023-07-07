@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.navbar-brand{
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+#menu{
+    margin-top:100px;
+}
+#menu h3{
+  font-size: 45px; 
+  color:#FC4F00;
+  text-align: center;
+  font-family:"Fantasy" ,"Papyrus" ;
+}
+.menu{
+    margin-top:60px;
+    display:flex;
+    justify-content: space-evenly;
+}
+.menu h5{
+    font-size: 40px; 
+    color:#212A3E;
+    font-family:"Fantasy" ,"Papyrus" ;
+    
+  }
+  .menu-item{
+    font-family: "Monospace","Courier New";
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    border: 3px solid #212A3E;
+    padding:10px;
+    color: #8B1874;
+    
+  }
+
+  

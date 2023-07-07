@@ -13,41 +13,68 @@ class Categories extends Controller
 {
     public function index()
    {
-    return view('admin.add_category');
+    if(isset(Auth::user()->username)){
+        return view('admin.add_category');
+    }
+    return redirect(route('home'));
    }
    public function index2()
    {
-    $categories = Categorie::All();
-    return view('admin.categories',['categories'=>$categories]);
+    if(isset(Auth::user()->username)){
+        $categories = Categorie::All();
+        return view('admin.categories',['categories'=>$categories]);
+    }
+    return redirect(route('home'));
    }
 
    public function store(Request $request,$id)
    {
-    
-    $user = User::find($id);
-    $request->validate([
-        'name' => 'required',
-        'description' => 'required',
-        'image' =>'required'
-    ]);
-     $imageName = time().'_'.$request->image->extension();
-     $request->image->move(public_path('image'),$imageName);
-     $categorie = new Categorie;
-     $categorie->name = $request->name;
-     $categorie->description = $request->description;
-     $categorie->image = $imageName;
-     $user->categorie()->save($categorie);
-     return redirect(route('categories'));
+    if(isset(Auth::user()->username)){
+        $userPermissions = Auth::user()->permissions;
+        foreach($userPermissions as $userPermission){
+            if(trim($userPermission->name) == "Create" || trim($userPermission->name) == "create"){
+                $user = User::find($id);
+                $request->validate([
+                    'name' => 'required',
+                    'description' => 'required',
+                    'image' =>'required'
+                ]);
+                 $imageName = time().'_'.$request->image->extension();
+                 $request->image->move(public_path('image'),$imageName);
+                 $categorie = new Categorie;
+                 $categorie->name = $request->name;
+                 $categorie->description = $request->description;
+                 $categorie->image = $imageName;
+                 $user->categorie()->save($categorie);
+                 return redirect(route('categories'));
+            }
+        }
+        return redirect(route('dashboard'));
+    }
+    return redirect(route('home'));
 
    }
    public function edit($id)
    {
-    $categorie = Categorie::where('id',$id)->first();
-    return view('admin.edit_categorie',['categorie'=>$categorie]);
+    if(isset(Auth::user()->username)){
+        $userPermissions = Auth::user()->permissions;
+        foreach($userPermissions as $userPermission){
+            if(trim($userPermission->name) == "Edit" || trim($userPermission->name) == "edit"){
+                $categorie = Categorie::where('id',$id)->first();
+                return view('admin.edit_categorie',['categorie'=>$categorie]);
+            }
+        }
+        return redirect(route('dashboard'));
+    }
+    return redirect(route('home'));
    }
    public function update(Request $request,$id)
    {
-    $categorie = Categorie::where('id',$id)->first();
+    if(isset(Auth::user()->username)){
+        $userPermissions = Auth::user()->permissions;
+        foreach($userPermissions as $userPermission){
+            if(trim($userPermission->name) == "Edit" || trim($userPermission->name) == "edit"){
+                $categorie = Categorie::where('id',$id)->first();
     $request->validate([
         'name' => 'required',
         'description' => 'required' 
@@ -61,14 +88,27 @@ class Categories extends Controller
     }
     $categorie->save();
     return redirect(route('categories'));
+            }
+        }
+        return redirect(route('dashboard'));
+    }
+    return redirect(route('home'));
+    
    }
    public function destroy($id)
    {
+    if(isset(Auth::user()->username)){
+        $userPermissions = Auth::user()->permissions;
+        foreach($userPermissions as $userPermission){
+            if(trim($userPermission->name) == "Delete" || trim($userPermission->name) == "delete"){
+                $categorie = Categorie::where('id',$id)->first();
+                $categorie->delete();
+                return redirect(route('categories'));
+            }
+        }
+        return redirect(route('dashboard'));
+    }
+    return redirect(route('home'));
     
-    $categorie = Categorie::where('id',$id)->first();
-    
-    $categorie->delete();
-    
-    return redirect(route('categories'));
    }
 }

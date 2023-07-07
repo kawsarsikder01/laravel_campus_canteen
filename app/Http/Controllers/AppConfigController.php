@@ -16,8 +16,11 @@ class AppConfigController extends Controller
      */
     public function index()
     {
-        $app_datas = AppConfig::All();
-       return view('admin.app_config_data',['app_datas'=> $app_datas]);
+        if(isset(Auth::user()->username)){
+            $app_datas = AppConfig::All();
+            return view('admin.app_config_data',['app_datas'=> $app_datas]);
+        }
+        return redirect(route('home'));
     }
 
     /**
@@ -124,7 +127,7 @@ class AppConfigController extends Controller
     {
         $userPermissions = Auth::user()->permissions;
         foreach($userPermissions as $userPermission){
-            if(trim($userPermission->name) == "Update" || trim($userPermission->name) == "update"){
+            if(trim($userPermission->name) == "Edit" || trim($userPermission->name) == "edit"){
                 if($request->logo != null && $request->text_logo == null || $request->logo == null && $request->text_logo != null ){
                     if($request->logo == null){
                         $request->validate(['text_logo'=>'required']);

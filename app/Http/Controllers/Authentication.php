@@ -45,7 +45,7 @@ class Authentication extends Controller
     }
     elseif(\Auth::attempt($req->only('email','password')))
     {
-        return redirect(route('frontend_home'));
+        return redirect(route('home'));
     }
     return redirect(route('index'));
    }
@@ -64,7 +64,7 @@ class Authentication extends Controller
        
     
     elseif(\Auth::attempt($req->only('email','password'))){
-        return redirect(route('frontend_home'));
+        return redirect(route('home'));
     }
     else{
         return redirect(route('userlogin'));

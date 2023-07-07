@@ -8,13 +8,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto me-5 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home-page.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="{{route('menu')}}">Menu</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link " href="categorey.html">Categorey</a>
+                <a class="nav-link " href="{{route('front_categorie')}}">Categorey</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="reservation.html">Reservation</a>
@@ -25,12 +25,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
+              @if (Auth::user() == null)
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="{{route('userlogin')}}">Login</a>
               </li>
+              @endif
             </ul>
             <a href="#" class="btn btn-info shopping-cart mx-4"><i class="fa fa-shopping-cart text-light "></i></a>
-            <a href="#" class="btn btn-info users mx-4"><i class="fa fa-user text-light "></i></a>
+            @if (Auth::user() != null )
+            <a href="#" class=" users mx-4"><img src="{{asset('image/'.Auth::user()->image)}}" height="45" width="45" style="border-radius: 50%;" alt=""></a>
+            @endif
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -49,6 +53,6 @@
       <a href="">My Reviews</a>
       <a href="">My Returns & Cancellation</a>
       <a href="shipping_address.html">shipping address</a>
-      <a href="">Logout</a>
+      <a href="{{route('logout')}}">Logout</a>
     </div>
     </header>

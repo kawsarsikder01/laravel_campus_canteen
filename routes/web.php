@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\AddCustomer;
@@ -18,13 +17,39 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\FrontEndController\HomePageController;
+use App\Http\Controllers\FrontEndController\MenuController;
+use App\Http\Controllers\FrontEndController\CategorieController;
+use App\Http\Controllers\FrontEndController\BakeryController;
+use App\Http\Controllers\FrontEndController\FastFoodController;
+use App\Http\Controllers\FrontEndController\DrinkController;
 
 
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('home');
+//Frontendt Route
+
+//Home section Route
+Route::get('/', [HomePageController::class,'index'])->name('home');
+//menu Section Route
+Route::get('menu',[MenuController::class ,'index'])->name('menu');
+
+//Categorie Route
+Route::get('categorie',[CategorieController::class ,'index'])->name('front_categorie');
+//Bakery Route
+Route::get('bakery',[BakeryController::class ,'index'])->name('bakery');
+
+//fast food route
+Route::get('fastfood',[FastFoodController::class ,'index'])->name('fastfood');
+//Drink Route
+
+Route::get('drinks',[DrinkController::class , 'index'])->name('drinks');
+
+
+
+
+
+
 Route::post('/added_customer',[AddCustomer::class ,'store'])->name('customercontroller');
 Route::post('customer/{id}/update',[Customer::class ,'update']);
 Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
@@ -41,6 +66,7 @@ Route::get('registration',function(){
     return view('frontend.registration');
 })->name('registration');
 
+//Admin Panel Route
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('logout',[Authentication::class ,'logout'])->name('logout');

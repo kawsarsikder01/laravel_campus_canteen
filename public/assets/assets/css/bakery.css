@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.bakery .card p{
+    background-color:#2A2F4F ;
+    color:#FDE2F3;
+    margin-left: 5px;
+    display: inline-block;
+    margin-left:80px;
+    padding:8px;
+    border-radius: 50%;
+ }
+
+ .bakery .card h5{
+    color:#2A2F4F;
+ }
+ #bakery h3{
+    font-size: 45px; 
+    color:#FC4F00;
+    text-align: center;
+    font-family:"Fantasy" ,"Papyrus" ;
+}
+.bakery{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#bakery{
+    margin-top:50px;
+}
+.bakery{
+    margin-top:50px;
+}
+.bakery .card{
+    margin-top:20px;
+}
