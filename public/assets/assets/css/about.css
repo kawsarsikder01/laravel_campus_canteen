@@ -16,9 +16,12 @@
   font-family:"Fantasy" ,"Papyrus" ;
 }
 .about{
+    width:85%;
+    margin-left: 7.5%;
     background-color: #2A2F4F;
     margin-top:60px;
-    padding:40px;
+    padding:60px;
+    border-radius: 15%;;
 }
 .about p{
     text-align: center;

@@ -55,8 +55,6 @@ class SliderController extends Controller
                     foreach($sliders as $slider){
                         if($slider->status == 1 && $request->status != null || $request->status == null){
                            $slide->status = 0;
-                        }else{
-                            $slide->status = 1;
                         }
                     }
                     // dd('nice');

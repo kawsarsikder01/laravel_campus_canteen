@@ -1,36 +1,29 @@
 <x-master>
-<section class="form mx-5 my-4 pt-5 ">
-        <div class="container ">
-            <div class="row d-flex justify-content-center">
-               
-                <div class="col-lg-7 px-5 pt-5 ">
-                    <h1 class="font-weight-bold py-3 d-flex justify-content-center text-danger">Campus Canteen</h1>
-                    <h4 class="d-flex justify-content-center">Contact Us</h4>
-                    <form action="">
-
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <input type="email" placeholder="Email-Address" class="form-control my-2 p-2">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <input type="email" placeholder="Email-Address" class="form-control my-2 p-2">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                              <textarea rows="3" required class="form-control" placeholder="Your Text Here.."></textarea>
-                            </div>
-                          </div>
-                       
-                          <button type="button" class="btn1 mt-3 mb-5">Send Now</button>
-                       
-                    </form>
+    <section id="contact">
+        <h3>Contact</h3>
+        <div class="container contact">
+            <form id="form_data">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Name</label>
+                        <input type="text"name="name" class="form-control" id="name">
+                      </div>
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="email"name="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
-            </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Mobile</label>
+                  <input type="number" name="phone" class="form-control" id="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Message</label>
+                    <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
+                  </div>
+                
+                <button type="submit" id="submit" class="button px-4">Submit</button>
+              </form>
         </div>
-    </section>
+        
+      </section>
+      <script src="js/message.js"></script>
 </x-master>

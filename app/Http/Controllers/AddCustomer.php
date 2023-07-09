@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customers;
+use Auth;
 
 class AddCustomer extends Controller
 {
@@ -16,31 +17,13 @@ class AddCustomer extends Controller
         $customers = Customers::All();
         return view('admin.customers',['customers' => $customers]);
     }
-    public function store(Request $req)
+    public function store(Request $request)
     {
-        $req->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'image' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'passwoard' => 'required'
-        ]);
-        $imageName = time().'_'.$req->image->extension();
-        $req->image->move(public_path('image'),$imageName);
-        
-        $customer = new Customers;
-        $customer->name=$req->name;
-        $customer->username=$req->username;
-        $customer->image=$imageName;
-        $customer->address=$req->address;
-        $customer->phone=$req->phone;
-        $customer->email=$req->email;
-        $customer->passwoard=$req->passwoard;
-        $customer->save();
-
-
-        return redirect(route('customers'));
+       $data = new Customers();
+       $data->name = $request->input('name');
+       $data->email = $request->input('email');
+       $data->phone_no = $request->input('phone');
+       $data->address = $request->input('address');
+       $data->save();
     }
 }

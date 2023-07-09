@@ -20,10 +20,10 @@
                 <a class="nav-link" href="reservation.html">Reservation</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="{{route('app_about')}}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="{{route('contact')}}">Contact</a>
               </li>
               @if (Auth::user() == null)
               <li class="nav-item">

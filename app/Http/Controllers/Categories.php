@@ -7,6 +7,7 @@ use App\Models\Categorie;
 use App\Models\User;
 use App\Models\Roll;
 use App\Models\Permission;
+use Auth;
 
 
 class Categories extends Controller

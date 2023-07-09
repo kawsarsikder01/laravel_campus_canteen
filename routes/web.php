@@ -23,39 +23,31 @@ use App\Http\Controllers\FrontEndController\CategorieController;
 use App\Http\Controllers\FrontEndController\BakeryController;
 use App\Http\Controllers\FrontEndController\FastFoodController;
 use App\Http\Controllers\FrontEndController\DrinkController;
+use App\Http\Controllers\FrontEndController\FrontendAboutController;
+use App\Http\Controllers\MessageController;
 
 
 
 
 //Frontendt Route
 
-//Home section Route
-Route::get('/', [HomePageController::class,'index'])->name('home');
-//menu Section Route
-Route::get('menu',[MenuController::class ,'index'])->name('menu');
 
-//Categorie Route
-Route::get('categorie',[CategorieController::class ,'index'])->name('front_categorie');
-//Bakery Route
-Route::get('bakery',[BakeryController::class ,'index'])->name('bakery');
+Route::get('/', [HomePageController::class,'index'])->name('home');//Home section Route
 
-//fast food route
-Route::get('fastfood',[FastFoodController::class ,'index'])->name('fastfood');
-//Drink Route
-
-Route::get('drinks',[DrinkController::class , 'index'])->name('drinks');
+Route::get('menu',[MenuController::class ,'index'])->name('menu');//menu Section Route
 
 
+Route::get('categorie',[CategorieController::class ,'index'])->name('front_categorie');//Categorie Route
+
+Route::get('bakery',[BakeryController::class ,'index'])->name('bakery');//Bakery Route
 
 
+Route::get('fastfood',[FastFoodController::class ,'index'])->name('fastfood');//fast food route
 
+Route::get('drinks',[DrinkController::class , 'index'])->name('drinks');//Drink Route
 
-Route::post('/added_customer',[AddCustomer::class ,'store'])->name('customercontroller');
-Route::post('customer/{id}/update',[Customer::class ,'update']);
-Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
-// Route::get('home',function(){
-//     return view('frontend.index');
-// })->name('home');
+Route::get('app_about',[FrontendAboutController::class ,'index'])->name('app_about');//About Route
+
 Route::get('user_login',function(){
     return view('frontend.login');
 })->name('userlogin');
@@ -65,6 +57,9 @@ Route::get('contact',function(){
 Route::get('registration',function(){
     return view('frontend.registration');
 })->name('registration');
+
+//Customer Message Route
+Route::post('send_message',[MessageController::class ,'store']);
 
 //Admin Panel Route
 
@@ -147,6 +142,12 @@ Route::post('add_about',[AboutController::class ,'store'])->name('add_about');
 Route::get('about/{id}/edit',[AboutController::class , 'edit']);
 Route::post('about/{id}/update',[AboutController::class ,'update']);
 Route::get('about/{id}/delete',[AboutController::class,'destroy']);
+
+//Customer Route 
+Route::post('added_customer',[AddCustomer::class ,'store']);
+Route::post('customer/{id}/update',[Customer::class ,'update']);
+Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
+
 
 
 
