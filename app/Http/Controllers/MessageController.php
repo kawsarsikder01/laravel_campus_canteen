@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class MessageController extends Controller
 {
@@ -28,12 +29,12 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Message();
-       $data->name = $request->input('name');
-       $data->email = $request->input('email');
-       $data->phone_no = $request->input('phone');
-       $data->address = $request->input('message');
-       $data->save();
+        // $product = Product::All();
+        // return response()->json($product,200);
+        // $data = new Message();
+       $data = Message::create($request->all());
+       $messages = Message::All();
+       return response()->json($messages,200);
        
     }
 

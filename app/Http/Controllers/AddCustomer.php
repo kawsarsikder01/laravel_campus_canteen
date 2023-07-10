@@ -10,20 +10,18 @@ class AddCustomer extends Controller
 {
     public function index()
     {
+        
         return view('admin.add_customer');
     }
     public function index2()
     {
         $customers = Customers::All();
-        return view('admin.customers',['customers' => $customers]);
+        return response()->json($customers,200);
     }
     public function store(Request $request)
     {
-       $data = new Customers();
-       $data->name = $request->input('name');
-       $data->email = $request->input('email');
-       $data->phone_no = $request->input('phone');
-       $data->address = $request->input('address');
-       $data->save();
+       $customers = Customers::create($request->all());
+       $customer = Customers::All();
+       return response()->json($customer,200);
     }
 }

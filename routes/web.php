@@ -59,15 +59,13 @@ Route::get('registration',function(){
 })->name('registration');
 
 //Customer Message Route
-Route::post('send_message',[MessageController::class ,'store']);
+Route::post('/send_message',[MessageController::class ,'store']);
 
 //Admin Panel Route
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('logout',[Authentication::class ,'logout'])->name('logout');
     Route::get('/dashboard',[Dashboard::class ,'index'])->name('dashboard');
-    Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
-    Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
 Route::get('add_product',[Products::class ,'index'])->name('addproduct');
 Route::get('products',[Products::class ,'index2'])->name('products');
 Route::get('add_outdoor',[Outdoors::class ,'index'])->name('addoutdoor');
@@ -76,9 +74,6 @@ Route::get('add_order',[Orders::class ,'index'])->name('addorder');
 Route::get('orders',[Orders::class ,'index2'])->name('orders');
 // Route::get('user_role',[Setting::class ,'index3'])->name('userrole');
 Route::get('permissions',[Setting::class ,'index4'])->name('permissions');
-Route::get('customer/{id}/edit',[Customer::class ,'edit']);
-Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
-Route::get('customer/{id}/view',[Customer::class ,'view']);
 Route::post('add_product/{id}',[Products::class ,'store']);
 Route::post('user_permission',[Permissions::class,'store'])->name('user_permission');
 Route::get('home', function () {
@@ -144,9 +139,13 @@ Route::post('about/{id}/update',[AboutController::class ,'update']);
 Route::get('about/{id}/delete',[AboutController::class,'destroy']);
 
 //Customer Route 
-Route::post('added_customer',[AddCustomer::class ,'store']);
-Route::post('customer/{id}/update',[Customer::class ,'update']);
-Route::get('customer/{id}/delete',[Customer::class ,'destroy']);
+Route::post('/added_customer',[AddCustomer::class ,'store']);
+Route::put('/customer_update={id}',[Customer::class ,'update']);
+Route::delete('/delete_customer={id}',[Customer::class ,'destroy']);
+Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
+Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
+Route::get('/customers_edit={id}',[Customer::class ,'edit']);
+Route::get('customer/{id}/view',[Customer::class ,'view']);
 
 
 
