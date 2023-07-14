@@ -31,7 +31,7 @@
               </li>
               @endif
             </ul>
-            <a href="#" class="btn btn-info shopping-cart mx-4"><i class="fa fa-shopping-cart text-light "></i></a>
+            <a class="btn btn-info shopping-cart mx-4"><i class="fa fa-shopping-cart text-light "></i></a>
             @if (Auth::user() != null )
             <a href="#" class=" users mx-4"><img src="{{asset('image/'.Auth::user()->image)}}" height="45" width="45" style="border-radius: 50%;" alt=""></a>
             @endif
@@ -43,9 +43,27 @@
           </div>
         </div>
       </nav>
-      <div class="cart-items">
-        <div id="cart-items"></div>
-        <a href="payment_method.html" class="cart-btn">checkout now</a>
+      <div class="sidebar cart-items">
+        <div class="head"><p>My Cart</p></div>
+        <div id="cartItem">
+      @if (session('cart'))
+          @foreach (session('cart') as $item)
+          <div class="cart-item">
+            <div class="row-img">
+                <img class="rowimg" src="{{asset('image/'.$item['image'])}}">
+            </div>
+            <p style ="font-size:12px">{{$item['name']}}</p>
+            <h2 style="font-size:15px;">{{$item['price']}}</h2>
+            <i class='fa-solid fa-trash' id="delete" style="cursor: pointer" onclick="deleteProduct({{$item['id']}})"></i>
+          </div>
+          @endforeach
+      @endif
+           
+          </div>
+        <div class="foot">
+            <h3>Total</h3>
+            <h2 id="total">tk .00</h2>
+        </div>
     </div>
     <div class="user">
       <a href="">manage my account</a>

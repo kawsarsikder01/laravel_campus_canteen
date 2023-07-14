@@ -60,25 +60,14 @@
                         </div>
                     </div>
         
-                    <div class="form-group row">
-                        <label class="col-form-label col-lg-2">Password<span class="text-danger">*</span></label>
-                        <div class="col-lg-10">
-                        <x-sg-password name="password" "/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-lg-2"> Conform Password<span class="text-danger">*</span></label>
-                        <div class="col-lg-10">
-                        <x-sg-password name="password_confirmation"/>
-                        </div>
-                    </div>
+                   
                     <div class="form-group row">
                         <label class="col-form-label col-lg-2"> Role<span class="text-danger">*</span></label>
                         <div class="col-lg-6">
-                            <select class="role form-control" name="role" id="role">
+                            <select class="role form-control" name="role" id="role" onchange="myFunction(this)">
                                 <option value="">Select Role...</option>
                                 @foreach ($roles as $role)
-                                <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}">{{$role->name}}</option>
+                                <option data-role-id="{{$role->id}}"data-adr="{{$role->id}}" data-role-slug="{{$role->id}}" value="{{$role->id}}">{{$role->name}}</option>
                                 @endforeach
                             </select>
                         </div>

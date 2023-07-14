@@ -10,15 +10,17 @@ use Auth;
 
 class UserController extends Controller
 {
+    public function getpermission($id){
+        
+        $roles = Role::where('id',$id)->first();
+        $permissions = $roles->permissions;
+
+        return $permissions;
+   
+}
 
     public function create(Request $request)
     {
-        if($request->ajax()){
-            $roles = Role::where('id', $request->role_id)->first();
-            $permissions = $roles->permissions;
-
-            return $permissions;
-        }
         if(isset(Auth::user()->username)){
             $userPermissions = Auth::user()->permissions;
             foreach($userPermissions as $userPermission){
@@ -27,8 +29,10 @@ class UserController extends Controller
                     $roles = Role::All();
                     return view('admin.add_user',['roles'=>$roles]);
                 }
+              
             }
             return redirect(route('dashboard'));
+           
         }
         return redirect(route('home'));
 

@@ -48,6 +48,9 @@ Route::get('drinks',[DrinkController::class , 'index'])->name('drinks');//Drink 
 
 Route::get('app_about',[FrontendAboutController::class ,'index'])->name('app_about');//About Route
 
+Route::get('/get_product={id}',[Products::class ,'addToCart']);
+Route::get('/delete_product={id}',[Products::class ,'remove']);
+
 Route::get('user_login',function(){
     return view('frontend.login');
 })->name('userlogin');
@@ -94,6 +97,7 @@ Route::post('update/{id}/role',[RolesController::class ,'update']);
 
 //User Routes
 Route::get('/add_user',[UserController::class ,'create'])->name('adduser');
+Route::get('/get_permission={id}',[UserController::class ,'getpermission'])->name('getpermission');
 Route::get('user/{id}/profile',[UserController::class,'show']);
 Route::get('user/{id}/edit',[UserController::class,'edit']);
 Route::post('user/{id}/update',[UserController::class,'update'])->name('userupdate');
@@ -146,6 +150,12 @@ Route::get('/add_customer',[AddCustomer::class ,'index'])->name('addcustomer');
 Route::get('/customers',[AddCustomer::class ,'index2'])->name('customers');
 Route::get('/customers_edit={id}',[Customer::class ,'edit']);
 Route::get('customer/{id}/view',[Customer::class ,'view']);
+
+//Message Route
+Route::get('messages',[MessageController::class , 'index'])->name('messages');
+Route::get('/get_messages',[MessageController::class , 'getdata'])->name('get_message');
+Route::delete('/delete_message',[MessageController::class , 'destroy']);
+
 
 
 

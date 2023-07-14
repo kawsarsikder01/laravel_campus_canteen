@@ -56,8 +56,20 @@
                                 <div class="card-footer d-flex justify-content-between align-items-center">
                                     <span class="font-size-sm text-uppercase font-weight-semibold">Nov 12, 11:25 am</span>
                                     <span class="font-size-sm text-uppercase text-success font-weight-semibold">
-                                        <a href="about/{{$about->id}}/edit" class="btn-sm bg-primary border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-pen"></i></a>
-                                        <a href="about/{{$about->id}}/delete" class="btn-sm bg-danger border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"" ><i class="icon-trash"></i></a>
+                                        
+
+                                        @php
+										   $permissions = Auth::user()->permissions;
+									   @endphp
+									   @foreach ($permissions as $permission)
+									   @if (trim($permission->name) == "Edit")
+									   <a href="about/{{$about->id}}/edit" class="btn-sm bg-primary border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-pen"></i></a>
+									   @endif
+									   @if (trim($permission->name) == "Delete")
+									   <a href="about/{{$about->id}}/delete" class="btn-sm bg-danger border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"" ><i class="icon-trash"></i></a>
+									   @endif
+										   
+									   @endforeach
                                     </span>
                                 </div>
                             </div>   

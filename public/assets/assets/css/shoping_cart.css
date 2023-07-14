@@ -1,10 +1,10 @@
 .header .cart-items{
-    background-color: #2A2F4F;
+    background-color: #eee;
     position: absolute;
     right:-100%;
     display: none;
-    height: calc(100vh - 8.5rem);
-    width: 33rem;
+    height: 100%;
+    width:30%;
     padding:0 1.5rem;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.6);
     z-index: 3;

@@ -17,8 +17,8 @@ const getData = ()=>{
       <td>${email}</td>
       <td>${address}</td>
       <td>${phone_no}</td>
-      <td><a  onclick="dataEdit(${id})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
-      <td><a onclick="dataDelete(${id})" class="btn btn-danger">Delete</a></td>
+      <td><a  onclick="dataEdit(${id})" style="cursor: pointer;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
+      <td><a onclick="dataDelete(${id})" style="cursor: pointer;" style="cursor: pointer;" class="btn btn-danger">Delete</a></td>
       </tr>
   `);
     }).join('');
@@ -101,8 +101,8 @@ const savedata = (e)=>{
                 <td>${email}</td>
                 <td>${address}</td>
                 <td>${phone_no}</td>
-                <td><a  onclick="dataEdit(${id})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
-                <td><a onclick="dataDelete(${id})" class="btn btn-danger">Delete</a></td>
+                <td><a  onclick="dataEdit(${id})" style="cursor: pointer;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
+                <td><a onclick="dataDelete(${id})" style="cursor: pointer;" class="btn btn-danger">Delete</a></td>
                 </tr>
             `);
           }).join('');
@@ -112,6 +112,7 @@ const savedata = (e)=>{
           console.error(error);
         });
     formdata.reset();
+    
     tbody.innerHTML =tr;
 }
 
@@ -194,8 +195,8 @@ console.log(name);
             <td>${email}</td>
             <td>${address}</td>
             <td>${phone_no}</td>
-            <td><a  onclick="dataEdit(${id})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
-            <td><a onclick="dataDelete(${id})" class="btn btn-danger">Delete</a></td>
+            <td><a  onclick="dataEdit(${id})" style="cursor: pointer;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
+            <td><a onclick="dataDelete(${id})" style="cursor: pointer;" class="btn btn-danger">Delete</a></td>
             </tr>
         `);
       }).join('');
@@ -204,23 +205,8 @@ console.log(name);
       // Handle any errors
       console.error(error);
     });
-    const formdata = document.getElementById('save-data');
-  formdata.innerHTML = `<div class="mb-3">
-  <label for="message-text" class="col-form-label">Name</label>
-  <input type="text" name="name" id="name" value="" class="form-control">
-</div>
-<div class="mb-3">
-  <label for="message-text" class="col-form-label">Email</label>
-  <input type="email" name="email" id="email" value="" class="form-control">
-</div>
-<div class="mb-3">
-  <label for="message-text" class="col-form-label">Phone</label>
-  <input type="number" name="phone" id="phone" value="" class="form-control">
-</div>
-<div class="mb-3">
-  <label for="message-text" class="col-form-label">Address</label>
-  <input type="text" name="address" id="address" value="" class="form-control">
-</div>`;
+    const formdata = document.getElementById('exampleModal');
+  formdata.innerHTML = ``;
   tbody.innerHTML =tr;
 }
 
@@ -248,8 +234,8 @@ const dataDelete = (id)=>{
         <td>${email}</td>
         <td>${address}</td>
         <td>${phone_no}</td>
-        <td><a  onclick="dataEdit(${id})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
-        <td><a onclick="dataDelete(${id})" class="btn btn-danger">Delete</a></td>
+        <td><a  onclick="dataEdit(${id})" style="cursor: pointer;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit" class="btn btn-warning">Edit</a></td>
+        <td><a onclick="dataDelete(${id})" style="cursor: pointer;" class="btn btn-danger">Delete</a></td>
         </tr>
     `);
   }).join('');// Output the response message

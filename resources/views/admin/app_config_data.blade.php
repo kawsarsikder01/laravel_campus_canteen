@@ -40,9 +40,23 @@
                         <td><span >{{$app_data->business_address}}</span></td>
                         <td class="text-center">
                             <div class="d-flex  ">
+                               
+
+                                @php
+                                    $permissions = Auth::user()->permissions;
+                                @endphp
+                                @foreach ($permissions as $permission)
+                                @if (trim($permission->name) == "View")
                                 <a href="" class="btn-sm bg-success border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-eye"></i></a>
+                                @endif
+                                @if (trim($permission->name) == "Edit")
                                 <a href="config/{{$app_data->id}}/edit" class="btn-sm bg-primary border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-pen"></i></a>
+                                @endif
+                                @if (trim($permission->name) == "Delete")
                                 <a href="config/{{$app_data->id}}/delete" class="btn-sm bg-danger border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"" ><i class="icon-trash"></i></a>
+                                @endif
+                                    
+                                @endforeach
                             </div>
                         </td>
                     </tr>

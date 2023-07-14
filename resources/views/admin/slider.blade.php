@@ -72,8 +72,19 @@
 								<div class="card-footer d-flex justify-content-between align-items-center">
 									<span class="font-size-sm text-uppercase font-weight-semibold">{{$slider->created_at}}</span>
 									<span class="font-size-sm text-uppercase text-success font-weight-semibold">
-										<a href="slider/{{$slider->id}}/edit" class="btn-sm bg-primary border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-pen"></i></a>
-                               			<a href="slider/{{$slider->id}}/delete" class="btn-sm bg-danger border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"" ><i class="icon-trash"></i></a>
+										
+										@php
+										   $permissions = Auth::user()->permissions;
+									   @endphp
+									   @foreach ($permissions as $permission)
+									   @if (trim($permission->name) == "Edit")
+									   <a href="slider/{{$slider->id}}/edit" class="btn-sm bg-primary border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"><i class="icon-pen"></i></a>
+									   @endif
+									   @if (trim($permission->name) == "Delete")
+									   <a href="slider/{{$slider->id}}/delete" class="btn-sm bg-danger border-2 border-primary btn-icon rounded-round legitRipple shadow mr-1"" ><i class="icon-trash"></i></a>
+									   @endif
+										   
+									   @endforeach
 									</span>
 								</div>
 							</div>   

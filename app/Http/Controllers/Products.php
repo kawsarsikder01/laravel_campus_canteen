@@ -6,12 +6,44 @@ use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Cart;
 use Auth;
 
 
 
 class Products extends Controller
 {
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        }  else {
+            $cart[$id] = [
+                "id"=>    $product->id,
+                "name" => $product->name,
+                "image" => $product->image,
+                "price" => $product->sell_price,
+                "quantity" => 1
+            ];
+        }
+  
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product add to cart successfully!');
+    }
+    public function remove(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product successfully removed!');
+        }
+    }
     public function index()
    {
     if(isset(Auth::user()->username)){

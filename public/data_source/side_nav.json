@@ -7,16 +7,7 @@
   {
     "name": "Customers",
     "icon": "icon-users2",
-    "subnav": [
-      {
-        "name": "Add Customer",
-        "url": "addcustomer"
-      },
-      {
-        "name": "Customers",
-        "url": "customers"
-      }
-    ]
+    "url": "add_customer"
   },
   {
     "name": "Categories",

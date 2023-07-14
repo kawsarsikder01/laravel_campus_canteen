@@ -13,7 +13,12 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+       return view('admin.message');
+    }
+    public function getdata()
+    {
+        $messages = Message::All();
+        return response()->json($messages,200);
     }
 
     /**
@@ -65,8 +70,11 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Message $message)
+    public function destroy(Message $message,$id)
     {
-        //
+        $customer = Message::where('id',$id)->first();
+        $customer->delete();
+        $customers = Message::All();
+        return response()->json($customers,200);
     }
 }

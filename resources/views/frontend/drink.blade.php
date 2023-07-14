@@ -8,7 +8,7 @@
            <a href="#"><img src="{{asset('image/'.$product->image)}}" height="300" class="card-img-top" alt="..."></a>
            <div class="card-body">
              <h5 class="card-title">{{$product->name}}</h5>
-             <a href="#" class="btn btn-primary">Add to Cart</a>
+             <a href="/get_product={{$product->id}}" class="btn btn-primary">Add to Cart</a>
              <p>tk {{$product->cost_price}}</p>
            </div>
          </div>
